@@ -32,6 +32,7 @@ TEST_CASE("Check that our error handling macros throw the right exceptions", "[!
 
 TEST_CASE("CaseInsensitiveLess is case insensitive", "[comparisons][string-case]") {
     Catch::Detail::CaseInsensitiveLess lt;
+    (void)lt;
     SECTION( "Degenerate cases" ) {
         REQUIRE( lt( "", "a" ) );
         REQUIRE_FALSE( lt( "a", "a" ) );
@@ -48,6 +49,8 @@ TEST_CASE("CaseInsensitiveLess is case insensitive", "[comparisons][string-case]
 TEST_CASE( "CaseInsensitiveEqualsTo is case insensitive",
            "[comparisons][string-case]" ) {
     Catch::Detail::CaseInsensitiveEqualTo eq;
+
+    (void)eq;
     SECTION( "Degenerate cases" ) {
         REQUIRE( eq( "", "" ) );
         REQUIRE_FALSE( eq( "", "a" ) );

@@ -135,6 +135,7 @@ TEST_CASE( "sends information to INFO", "[.][failing]" ) {
 
 TEST_CASE( "Pointers can be converted to strings", "[messages][.][approvals]" ) {
     int p;
+    (void)p;
     WARN( "actual address of p: " << &p );
     WARN( "toString(p): " << ::Catch::Detail::stringify( &p ) );
 }

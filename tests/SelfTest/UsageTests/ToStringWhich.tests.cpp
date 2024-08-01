@@ -61,29 +61,34 @@ namespace Catch {
 // Call the operator
 TEST_CASE( "stringify( has_operator )", "[toString]" ) {
     has_operator item;
+    (void)item;
     REQUIRE( ::Catch::Detail::stringify( item ) == "operator<<( has_operator )" );
 }
 
 // Call the stringmaker
 TEST_CASE( "stringify( has_maker )", "[toString]" ) {
     has_maker item;
+    (void)item;
     REQUIRE( ::Catch::Detail::stringify( item ) == "StringMaker<has_maker>" );
 }
 
 // Call the stringmaker
 TEST_CASE( "stringify( has_maker_and_operator )", "[toString]" ) {
     has_maker_and_operator item;
+    (void)item;
     REQUIRE( ::Catch::Detail::stringify( item ) == "StringMaker<has_maker_and_operator>" );
 }
 
 TEST_CASE("stringify( has_neither )", "[toString]") {
     has_neither item;
+    (void)item;
     REQUIRE( ::Catch::Detail::stringify(item) == "{?}" );
 }
 
 // Call the templated operator
 TEST_CASE( "stringify( has_template_operator )", "[toString]" ) {
     has_template_operator item;
+    (void)item;
     REQUIRE( ::Catch::Detail::stringify( item ) == "operator<<( has_template_operator )" );
 }
 

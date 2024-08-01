@@ -128,8 +128,10 @@ TEST_CASE("#809") {
 // Test containing example where original stream insertable check breaks compilation
 TEST_CASE("#872") {
     A dummy;
+    (void)dummy;
     CAPTURE(dummy);
     B x;
+    (void)x;
     REQUIRE (x == 4);
 }
 
@@ -146,6 +148,8 @@ TEST_CASE("#1027: Bitfields can be captured") {
 // This is unusual, but should be supported.
 TEST_CASE("#1147") {
     logic_t t1, t2;
+    (void)t1;
+    (void)t2;
     REQUIRE(t1 == t2);
     REQUIRE(t1 != t2);
     REQUIRE(t1 <  t2);
@@ -171,6 +175,8 @@ TEST_CASE_METHOD((Fixture_1245<int, int>), "#1245", "[compilation]") {
 
 TEST_CASE("#1403", "[compilation]") {
     ::foo::helper_1403 h1, h2;
+    (void)h1;
+    (void)h2;
     REQUIRE(h1 == h2);
 }
 

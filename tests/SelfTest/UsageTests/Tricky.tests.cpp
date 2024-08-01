@@ -124,6 +124,7 @@ namespace ObjectWithConversions
     )
     {
         Object o;
+        (void)o;
         REQUIRE(0xc0000000 == o );
     }
 }
