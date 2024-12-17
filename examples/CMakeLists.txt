@@ -30,6 +30,7 @@ set( SOURCES_IDIOMATIC_EXAMPLES
     101-Fix-SectionWithObjectCache.cpp
     110-Fix-ClassFixture.cpp
     111-Fix-PersistentFixture.cpp
+    112-Fix-PersistentFixtureWithObjectCache.cpp
     120-Bdd-ScenarioGivenWhenThen.cpp
     210-Evt-EventListeners.cpp
     232-Cfg-CustomMain.cpp
