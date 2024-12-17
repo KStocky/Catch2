@@ -27,6 +27,7 @@ target_compile_definitions(231-Cfg_OutputStreams PUBLIC CATCH_CONFIG_NOSTDOUT)
 set( SOURCES_IDIOMATIC_EXAMPLES
     030-Asn-Require-Check.cpp
     100-Fix-Section.cpp
+    101-Fix-SectionWithObjectCache.cpp
     110-Fix-ClassFixture.cpp
     111-Fix-PersistentFixture.cpp
     120-Bdd-ScenarioGivenWhenThen.cpp
