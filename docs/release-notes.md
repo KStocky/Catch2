@@ -2,6 +2,8 @@
 
 # Release notes
 **Contents**<br>
+[3.7.1](#371)<br>
+[3.7.0](#370)<br>
 [3.6.0](#360)<br>
 [3.5.4](#354)<br>
 [3.5.3](#353)<br>
@@ -61,6 +63,46 @@
 [2.0.1](#201)<br>
 [Older versions](#older-versions)<br>
 [Even Older versions](#even-older-versions)<br>
+
+
+## 3.7.1
+
+### Improvements
+* Applied the JUnit reporter's optimization from last release to the SonarQube reporter
+* Suppressed `-Wuseless-cast` in `CHECK_THROWS_MATCHES` (#2904)
+* Standardize exit codes for various failures
+  * Running no tests is now guaranteed to exit with 2 (without the `--allow-running-no-tests` flag)
+  * All tests skipped is now always 4 (...)
+  * Assertion failures are now always 42
+  * and so on
+
+### Fixes
+* Fixed out-of-bounds access when the arg parser encounters single `-` as an argument (#2905)
+
+### Miscellaneous
+* Added `catch_config_prefix_messages.hpp` to meson build (#2903)
+* `catch_discover_tests` now supports skipped tests (#2873)
+  * You can get the old behaviour by calling `catch_discover_tests` with `SKIP_IS_FAILURE` option.
+
+
+## 3.7.0
+
+### Improvements
+* Slightly improved compile times of benchmarks
+* Made the resolution estimation in benchmarks slightly more precise
+* Added new test case macro, `TEST_CASE_PERSISTENT_FIXTURE` (#2885, #1602)
+  * Unlike `TEST_CASE_METHOD`, the same underlying instance is used for all partial runs of that test case
+* **MASSIVELY** improved performance of the JUnit reporter when handling successful assertions (#2897)
+  * For 1 test case and 10M assertions, the new reporter runs 3x faster and uses up only 8 MB of memory, while the old one needs 7 GB of memory.
+* Reworked how output redirects works.
+  * Combining a reporter writing to stdout with capturing reporter no longer leads to the capturing reporter seeing all of the other reporter's output.
+  * The file based redirect no longer opens up a new temporary file for each partial test case run, so it will not run out of temporary files when running many tests in single process.
+
+### Miscellaneous
+* Better documentation for matchers on thrown exceptions (`REQUIRE_THROWS_MATCHES`)
+* Improved `catch_discover_tests`'s handling of environment paths (#2878)
+  * It won't reorder paths in `DL_PATHS` or `DYLD_FRAMEWORK_PATHS` args
+  * It won't overwrite the environment paths for test discovery
 
 
 ## 3.6.0
